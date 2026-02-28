@@ -1,0 +1,72 @@
+[
+  {
+    "id": "sample__dev-club",
+    "school": "샘플대학교",
+    "name": "샘플 개발 동아리",
+    "categories": [
+      "개발",
+      "학술"
+    ],
+    "tags": [
+      "초보환영",
+      "프로젝트",
+      "포트폴리오"
+    ],
+    "oneLine": "웹/앱 프로젝트와 세미나로 함께 성장하는 개발 커뮤니티",
+    "description": "이 항목은 샘플 데이터입니다. 실제 운영 시 동아리 정보로 교체하세요.",
+    "activityTime": "주 1회",
+    "location": "교내/온라인 혼합",
+    "recruiting": true,
+    "recruitEnd": "2026-03-15",
+    "applyUrl": "https://example.com/apply",
+    "contactUrl": "https://example.com/contact",
+    "logo": "",
+    "images": []
+  },
+  {
+    "id": "sample__music-club",
+    "school": "샘플대학교",
+    "name": "샘플 공연 동아리",
+    "categories": [
+      "공연",
+      "취미"
+    ],
+    "tags": [
+      "공연",
+      "밴드",
+      "연습"
+    ],
+    "oneLine": "정기공연과 합주를 중심으로 활동하는 밴드 동아리",
+    "description": "이 항목은 샘플 데이터입니다. 실제 운영 시 동아리 정보로 교체하세요.",
+    "activityTime": "주 2회",
+    "location": "교내",
+    "recruiting": true,
+    "recruitEnd": "2026-03-05",
+    "applyUrl": "https://example.com/apply2",
+    "contactUrl": "https://example.com/contact2",
+    "logo": "",
+    "images": []
+  },
+  {
+    "id": "sample__volunteer",
+    "school": "샘플대학교",
+    "name": "샘플 봉사 동아리",
+    "categories": [
+      "봉사"
+    ],
+    "tags": [
+      "지역사회",
+      "정기활동"
+    ],
+    "oneLine": "지역사회와 함께하는 정기 봉사 활동",
+    "description": "이 항목은 샘플 데이터입니다. 실제 운영 시 동아리 정보로 교체하세요.",
+    "activityTime": "월 2회",
+    "location": "교외",
+    "recruiting": false,
+    "recruitEnd": null,
+    "applyUrl": "https://example.com/apply3",
+    "contactUrl": "https://example.com/contact3",
+    "logo": "",
+    "images": []
+  }
+]
