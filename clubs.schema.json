@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "clubs.json schema",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "id",
+      "school",
+      "name",
+      "categories",
+      "oneLine",
+      "recruiting",
+      "applyUrl"
+    ],
+    "properties": {
+      "id": {
+        "type": "string",
+        "minLength": 1
+      },
+      "school": {
+        "type": "string",
+        "minLength": 1
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1
+      },
+      "categories": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "minLength": 1
+        },
+        "minItems": 1
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "default": []
+      },
+      "oneLine": {
+        "type": "string",
+        "minLength": 1
+      },
+      "description": {
+        "type": "string"
+      },
+      "activityTime": {
+        "type": "string"
+      },
+      "location": {
+        "type": "string"
+      },
+      "recruiting": {
+        "type": "boolean"
+      },
+      "recruitEnd": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+      },
+      "applyUrl": {
+        "type": "string",
+        "minLength": 1
+      },
+      "contactUrl": {
+        "type": "string",
+        "minLength": 1
+      },
+      "logo": {
+        "type": "string"
+      },
+      "images": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "default": []
+      }
+    }
+  }
+}
