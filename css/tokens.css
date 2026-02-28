@@ -1,0 +1,32 @@
+:root{
+  /* Brand (Orange) — “학과 공식 홈페이지 느낌”의 절제된 포인트 */
+  --brand-700: #C84B00;
+  --brand-600: #E85B00;
+  --brand-500: #FF6A00;
+  --brand-100: #FFF1E6;
+
+  /* Neutral */
+  --bg: #FFFFFF;
+  --bg-soft: #F7F8FA;
+  --text: #111827;
+  --muted: #6B7280;
+  --line: #E5E7EB;
+
+  /* Semantic */
+  --success-bg: #ECFDF5;
+  --success-text: #065F46;
+  --warning-bg: #FFFBEB;
+  --warning-text: #92400E;
+  --danger-bg: #FEF2F2;
+  --danger-text: #991B1B;
+
+  /* Layout */
+  --maxw: 1200px;
+  --radius: 14px;
+  --radius-sm: 10px;
+
+  --shadow: 0 10px 26px rgba(17,24,39,.08);
+  --shadow-sm: 0 6px 16px rgba(17,24,39,.08);
+
+  --font: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans KR", "Apple SD Gothic Neo", Arial, "Helvetica Neue", sans-serif;
+}
