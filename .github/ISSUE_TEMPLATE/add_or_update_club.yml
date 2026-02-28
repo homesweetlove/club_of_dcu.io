@@ -1,0 +1,115 @@
+name: 동아리 등록/수정 요청
+description: 동아리 정보를 추가하거나 수정해 주세요.
+title: "[동아리 등록/수정] 동아리명 - 학교"
+labels: ["club-request"]
+body:
+  - type: input
+    id: school
+    attributes:
+      label: 학교명
+      placeholder: 예) 대구가톨릭대학교
+    validations:
+      required: true
+
+  - type: input
+    id: name
+    attributes:
+      label: 동아리명
+      placeholder: 예) ABC 개발 동아리
+    validations:
+      required: true
+
+  - type: dropdown
+    id: change_type
+    attributes:
+      label: 요청 유형
+      options:
+        - 새 동아리 등록
+        - 기존 동아리 정보 수정
+        - 모집 상태/마감일 업데이트
+    validations:
+      required: true
+
+  - type: input
+    id: categories
+    attributes:
+      label: 카테고리(쉼표로 구분)
+      placeholder: 예) 개발, 학술
+    validations:
+      required: true
+
+  - type: input
+    id: tags
+    attributes:
+      label: 태그(선택, 쉼표로 구분)
+      placeholder: 예) 초보환영, 프로젝트, 포트폴리오
+    validations:
+      required: false
+
+  - type: textarea
+    id: oneLine
+    attributes:
+      label: 한 줄 소개
+      description: 10~60자 권장
+      placeholder: 예) 프로젝트와 세미나로 성장하는 개발 커뮤니티
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: 상세 소개(선택)
+      placeholder: 동아리 활동/운영 방식/지원자에게 알릴 내용
+    validations:
+      required: false
+
+  - type: input
+    id: activityTime
+    attributes:
+      label: 활동 빈도(선택)
+      placeholder: 예) 주 1회
+    validations:
+      required: false
+
+  - type: input
+    id: location
+    attributes:
+      label: 활동 장소(선택)
+      placeholder: 예) 교내/온라인 혼합
+    validations:
+      required: false
+
+  - type: dropdown
+    id: recruiting
+    attributes:
+      label: 모집 여부
+      options:
+        - 모집중
+        - 모집 아님/종료
+    validations:
+      required: true
+
+  - type: input
+    id: recruitEnd
+    attributes:
+      label: 모집 마감일(모집중이면 필수)
+      description: YYYY-MM-DD 형식 (예: 2026-03-15) / 마감미정이면 "미정"이라고 적어주세요.
+      placeholder: 예) 2026-03-15
+    validations:
+      required: false
+
+  - type: input
+    id: applyUrl
+    attributes:
+      label: 지원 링크
+      placeholder: https://forms.gle/...
+    validations:
+      required: true
+
+  - type: input
+    id: contactUrl
+    attributes:
+      label: 문의 링크(선택)
+      placeholder: 인스타/오픈채팅/메일 링크 등
+    validations:
+      required: false
