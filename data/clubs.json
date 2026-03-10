@@ -43,14 +43,15 @@
     "description": "샘플 데이터입니다. 실제 동아리 정보/포스터로 교체하세요.",
     "activityTime": "주 2회",
     "location": "교내",
-    "recruiting": true,
+    "recruiting": false,
     "recruitEnd": "2026-03-05",
     "applyUrl": "https://example.com/apply2",
     "contactUrl": "https://example.com/contact2",
     "logo": "",
     "images": [
       "./assets/posters/dcu__band-crew.svg"
-    ]
+    ],
+    "lastUpdated": "2026-03-11"
   },
   {
     "id": "dcu__volunteer",
