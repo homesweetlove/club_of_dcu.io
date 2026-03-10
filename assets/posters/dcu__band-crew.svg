@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#FFF1E6"/>
+      <stop offset="1" stop-color="#FFFFFF"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#g)"/>
+  <rect x="0" y="0" width="1600" height="120" fill="#FF6A00"/>
+  <text x="60" y="78" font-family="Arial, sans-serif" font-size="44" font-weight="700" fill="#ffffff">DCU CLUB PORTAL</text>
+
+  <text x="60" y="240" font-family="Arial, sans-serif" font-size="74" font-weight="800" fill="#111827">Band Crew</text>
+  <text x="60" y="320" font-family="Arial, sans-serif" font-size="32" fill="#6B7280">Replace this poster with your real image (JPG/PNG/SVG).</text>
+
+  <rect x="60" y="380" width="1480" height="440" rx="20" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="90" y="450" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#111827">How to replace</text>
+  <text x="90" y="500" font-family="Arial, sans-serif" font-size="26" fill="#111827">1) Upload your poster to: assets/posters/</text>
+  <text x="90" y="545" font-family="Arial, sans-serif" font-size="26" fill="#111827">2) Set clubs.json images[0] to: ./assets/posters/yourfile.jpg</text>
+  <text x="90" y="590" font-family="Arial, sans-serif" font-size="26" fill="#111827">3) Done. Click poster in Detail to open the lightbox.</text>
+</svg>

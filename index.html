@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light" />
+    <title>DCU Club Portal</title>
+    <meta name="description" content="대구가톨릭대학교 동아리를 한눈에 보고, 공식 지원 링크로 이동하는 포털" />
+    <meta name="theme-color" content="#FF6A00" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="icon" href="./assets/brand/favicon.svg" type="image/svg+xml" />
+    <meta property="og:title" content="DCU Club Portal" />
+    <meta property="og:description" content="대구가톨릭대학교 동아리를 한눈에 보고, 공식 지원 링크로 바로 이동하세요." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="./assets/og.png" />
+
+    <link rel="stylesheet" href="./css/base.css" />
+    <link rel="stylesheet" href="./css/layout.css" />
+    <link rel="stylesheet" href="./css/components.css" />
+    <link rel="stylesheet" href="./css/mobile.css" />
+    <link rel="stylesheet" href="./css/drawer.css" />
+    <link rel="stylesheet" href="./css/tablet.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="#top" aria-label="홈으로">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span id="siteName">DCU Club Portal</span>
+        </a>
+
+        <nav class="nav" aria-label="주요 메뉴">
+          <a href="#clubs">동아리 찾기</a>
+          <a href="#recruiting">모집중</a>
+          <a href="#closed">모집종료</a>
+          <a href="#deadline">마감임박</a>
+          <a href="#submit">등록요청</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="container hero-grid">
+          <div>
+            <h1>대구가톨릭대학교 동아리,<br/>한눈에 보고 바로 지원.</h1>
+            <p>
+              DCU 컴퓨터공학과 · AI 최신기술과 함께, 우리가 얼마나 멋진지 세계에 보여주자.
+              이 포털은 동아리 정보를 모아 보여주고 <b>각 동아리의 공식 지원 링크</b>로 연결합니다.
+            </p>
+
+            <div class="panel">
+              <div class="panel-body">
+                <label class="sr-only" for="q">검색</label>
+                <div style="position:relative;">
+                  <input class="input" id="q" placeholder="동아리명, 카테고리, 태그로 검색 (예: 개발, 봉사, 밴드)" autocomplete="off" />
+                  <div id="autocomplete" class="autocomplete" role="listbox" aria-label="검색 자동완성" style="display:none;"></div>
+                </div>
+
+                <div style="height: 10px"></div>
+
+                <div class="row">
+                  <label class="sr-only" for="school">학교</label>
+                  <select class="select" id="school" style="max-width: 240px">
+                    <option value="">전체 학교</option>
+                  </select>
+
+                  <label class="sr-only" for="sort">정렬</label>
+                  <select class="select" id="sort" style="max-width: 240px">
+                    <option value="deadline">마감/상태 우선</option>
+                    <option value="name">이름순</option>
+                    <option value="school">학교순</option>
+                  </select>
+
+                  <select class="select" id="groupBy" style="max-width: 240px">
+                    <option value="none">그룹 없음</option>
+                    <option value="school">학교별</option>
+                    <option value="category">카테고리별</option>
+                  </select>
+
+                  <button class="btn btn-ghost" id="toggleRecruiting" type="button" aria-pressed="false">
+                    모집중만 보기
+                  </button>
+
+                  <button class="btn btn-ghost" id="toggleClosed" type="button" aria-pressed="false">
+                    모집종료만 보기
+                  </button>
+
+                  <button class="btn btn-link" id="reset" type="button">
+                    필터 초기화
+                  </button>
+                </div>
+
+                <div style="height: 14px"></div>
+
+                <div>
+                  <div class="muted" style="font-weight: 800; font-size: 13px; margin-bottom: 8px;">카테고리</div>
+                  <div class="chip-row" id="categoryChips"></div>
+                </div>
+
+                <div style="height: 14px"></div>
+
+                <div>
+                  <div class="muted" style="font-weight: 800; font-size: 13px; margin-bottom: 8px;">태그</div>
+                  <div class="chip-row" id="tagChips"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <aside class="panel">
+            <div class="panel-body">
+              <div class="section-title">
+                <h2 style="margin:0;">대시보드</h2>
+                <div class="hint" id="summaryHint">-</div>
+              </div>
+
+              <div class="kv">
+                <div class="k">모집중</div>
+                <div class="v" id="countRecruiting">-</div>
+              </div>
+              <div style="height: 10px"></div>
+              <div class="kv">
+                <div class="k">모집종료</div>
+                <div class="v" id="countClosed">-</div>
+              </div>
+              <div style="height: 10px"></div>
+              <div class="kv">
+                <div class="k">전체</div>
+                <div class="v" id="countAll">-</div>
+              </div>
+
+              <hr class="divider" />
+
+              <div class="muted" style="font-size: 13px;">
+                팁: 동아리를 선택하면 오른쪽에서 상세/포스터를 바로 볼 수 있어요.
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      
+          <!-- Mobile sticky toolbar -->
+          <div class="mobile-toolbar" id="mobileToolbar" aria-hidden="true">
+            <div class="container mobile-toolbar-inner">
+              <button class="btn btn-ghost" id="openFilters" type="button">필터</button>
+<button class="btn btn-primary" id="installApp" type="button" style="display:none;">앱 설치</button>
+              <div style="flex:1"></div>
+              <button class="btn btn-ghost" id="openHelp" type="button">도움말</button>
+              <button class="btn btn-link" id="scrollTop" type="button">위로</button>
+            </div>
+          </div>
+
+      <section class="main">
+        <div class="container content-grid">
+          <div>
+            <div class="section-title" id="clubs">
+              <h2>동아리 목록</h2>
+              <button class="btn btn-ghost btn-sm" type="button" data-collapse="clubs" aria-pressed="false">접기</button>
+              <div class="hint"><span id="resultCount">0</span>개 결과</div>
+            </div>
+
+            <div id="activeFilters" class="active-filters" aria-label="활성 필터"></div>
+
+            <div class="cards" id="cards"></div>
+
+            <hr class="divider" />
+
+            <div class="section-title" id="recruiting">
+              <h2>모집중</h2>
+              <button class="btn btn-ghost btn-sm" type="button" data-collapse="recruiting" aria-pressed="false">접기</button>
+              <div class="hint">지원 링크 제공</div>
+            </div>
+            <div class="cards" id="cardsRecruiting"></div>
+
+            <hr class="divider" />
+
+            <div class="section-title" id="closed">
+              <h2>모집 종료</h2>
+              <button class="btn btn-ghost btn-sm" type="button" data-collapse="closed" aria-pressed="false">접기</button>
+              <div class="hint">지난 모집도 기록으로</div>
+            </div>
+            <div class="cards" id="cardsClosed"></div>
+
+            <hr class="divider" />
+
+            <div class="section-title" id="deadline">
+              <h2>마감 임박</h2>
+              <button class="btn btn-ghost btn-sm" type="button" data-collapse="deadline" aria-pressed="false">접기</button>
+              <div class="hint">가까운 마감 순</div>
+            </div>
+            <div class="deadline-list" id="deadlineList"></div>
+            <div class="cards" id="cardsDeadline"></div>
+
+            <hr class="divider" />
+
+            <section id="submit" class="panel">
+              <div class="detail-head">
+                <h2>동아리 등록/수정 요청</h2>
+                <p class="sub">동아리 측에서 정보를 추가하거나 수정하고 싶다면 아래 버튼을 이용해 주세요.</p>
+              </div>
+              <div class="detail-body">
+                <div class="detail-actions">
+                  <a class="btn btn-primary" id="submitLink" href="#" target="_blank" rel="noopener noreferrer">
+                    등록/수정 요청하기
+                  </a>
+                  <button class="btn btn-ghost" id="copySite" type="button">사이트 링크 복사</button>
+                </div>
+              </div>
+            </section>
+          </div>
+
+          <aside class="panel detail" aria-live="polite">
+            <div id="detail">
+              <div class="detail-empty">
+                <b>동아리를 선택하면</b><br/>
+                포스터/상세 정보가 표시됩니다.
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;">
+          <div>© <span id="year"></span> <span id="siteNameFooter">DCU Club Portal</span></div>
+          <div class="muted">Made with DCU CSE + AI</div>
+        </div>
+      </div>
+    </footer>
+
+
+
+    <!-- Mobile Filter Drawer -->
+    <div class="drawer-backdrop" id="drawerBackdrop" data-open="false" aria-hidden="true"></div>
+    <div class="drawer" id="drawer" data-open="false" aria-hidden="true">
+      <div class="drawer-top">
+        <div style="width:72px"></div>
+        <div class="title">필터</div>
+        <button class="btn btn-ghost" id="drawerClose" type="button">닫기</button>
+      </div>
+      <div class="drawer-body">
+        <div class="muted" style="font-size:13px; margin-bottom:10px;">검색/학교/정렬/모집 상태를 빠르게 설정하세요.</div>
+
+        <div style="display:grid; gap:10px;">
+          <div>
+            <div class="muted" style="font-weight:800; font-size:13px; margin-bottom:6px;">검색</div>
+            <input class="input" id="qDrawer" placeholder="검색어" autocomplete="off" />
+          </div>
+
+          <div>
+            <div class="muted" style="font-weight:800; font-size:13px; margin-bottom:6px;">학교</div>
+            <select class="select" id="schoolDrawer"></select>
+          </div>
+
+          <div>
+            <div class="muted" style="font-weight:800; font-size:13px; margin-bottom:6px;">정렬</div>
+            <select class="select" id="sortDrawer">
+              <option value="deadline">마감/상태 우선</option>
+              <option value="name">이름순</option>
+              <option value="school">학교순</option>
+            </select>
+          </div>
+
+          <div>
+            <div class="muted" style="font-weight:800; font-size:13px; margin-bottom:6px;">그룹 보기</div>
+            <select class="select" id="groupByDrawer">
+              <option value="none">그룹 없음</option>
+              <option value="school">학교별</option>
+              <option value="category">카테고리별</option>
+            </select>
+          </div>
+
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+            <button class="btn btn-ghost" id="recruitingDrawer" type="button" aria-pressed="false">모집중</button>
+            <button class="btn btn-ghost" id="closedDrawer" type="button" aria-pressed="false">모집종료</button>
+          </div>
+
+          <div>
+            <div class="muted" style="font-weight:800; font-size:13px; margin-bottom:6px;">카테고리</div>
+            <div class="chip-row" id="categoryChipsDrawer"></div>
+          </div>
+
+          <div>
+            <div class="muted" style="font-weight:800; font-size:13px; margin-bottom:6px;">태그</div>
+            <div class="chip-row" id="tagChipsDrawer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="drawer-actions">
+        <button class="btn btn-ghost" id="drawerReset" type="button" style="flex:1;">초기화</button>
+        <button class="btn btn-primary" id="drawerApply" type="button" style="flex:1;">적용</button>
+      </div>
+    </div>
+
+
+    <!-- Mobile Detail Sheet -->
+    <div class="sheet-backdrop" id="sheetBackdrop" data-open="false" aria-hidden="true"></div>
+    <div class="sheet" id="sheet" data-open="false" aria-hidden="true">
+      <div class="sheet-top">
+        <div style="width:72px"></div>
+        <div class="sheet-grab" aria-hidden="true"></div>
+        <button class="btn btn-ghost sheet-close" id="sheetClose" type="button">닫기</button>
+      </div>
+      <div class="sheet-body">
+        <div id="sheetDetail"></div>
+      </div>
+    </div>
+
+
+
+    <!-- Help Modal -->
+    <div class="modal" id="helpModal" data-open="false" aria-hidden="true">
+      <div class="modal-card" role="dialog" aria-modal="true" aria-label="도움말">
+        <div class="modal-top">
+          <div class="title">도움말</div>
+          <button class="btn btn-primary" id="helpClose" type="button">닫기</button>
+        </div>
+        <div class="modal-body" style="background:#fff; padding: 16px; display:block;">
+          <div style="font-weight:900; margin-bottom:8px;">빠른 단축키</div>
+          <ul style="margin:0; padding-left:18px; color: var(--text);">
+            <li><code>/</code> : 검색창 포커스</li>
+            <li><code>f</code> : 모바일 필터 열기</li>
+            <li><code>Esc</code> : 열린 창 닫기</li>
+            <li><code>j/k</code> : 목록에서 다음/이전 동아리 선택</li>
+            <li><code>Enter</code> : 선택 동아리 상세 열기</li>
+          </ul>
+          <div style="height:12px"></div>
+          <div class="muted" style="font-size:13px;">Tip: 검색은 동아리명/학교/태그/카테고리 모두 지원해요. (예: “AI”, “개발”, “대구가톨릭대학교”)</div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Poster Modal -->
+    <div class="modal" id="modal" data-open="false" aria-hidden="true">
+      <div class="modal-card" role="dialog" aria-modal="true" aria-label="포스터 보기">
+        <div class="modal-top">
+          <div class="title" id="modalTitle">포스터</div>
+          <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
+            <button class="btn btn-ghost" id="modalPrev" type="button">이전</button>
+            <button class="btn btn-ghost" id="modalNext" type="button">다음</button>
+            <a class="btn btn-ghost" id="modalOpenNew" href="#" target="_blank" rel="noopener noreferrer">새 탭</a>
+            <button class="btn btn-primary" id="modalClose" type="button">닫기</button>
+          </div>
+        </div>
+        <div class="modal-body">
+          <img id="modalImg" alt="포스터 이미지" />
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="./js/app.js"></script>
+  </body>
+</html>

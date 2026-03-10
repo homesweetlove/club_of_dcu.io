@@ -1,0 +1,79 @@
+[
+  {
+    "id": "dcu__laha-lab",
+    "school": "대구가톨릭대학교",
+    "name": "LAHA Lab",
+    "categories": [
+      "개발",
+      "학술"
+    ],
+    "tags": [
+      "AI",
+      "프로젝트",
+      "초보환영"
+    ],
+    "oneLine": "AI·웹 프로젝트로 실전 감각을 키우는 컴공 중심 커뮤니티",
+    "description": "샘플 데이터입니다. 실제 동아리 정보/포스터로 교체하세요.",
+    "activityTime": "주 1회",
+    "location": "교내/온라인 혼합",
+    "recruiting": true,
+    "recruitEnd": "2026-03-15",
+    "applyUrl": "https://example.com/apply",
+    "contactUrl": "https://example.com/contact",
+    "logo": "",
+    "images": [
+      "./assets/posters/dcu__laha-lab.svg",
+      "./assets/posters/dcu__laha-lab_2.svg"
+    ]
+  },
+  {
+    "id": "dcu__band-crew",
+    "school": "대구가톨릭대학교",
+    "name": "Band Crew",
+    "categories": [
+      "공연",
+      "취미"
+    ],
+    "tags": [
+      "밴드",
+      "공연",
+      "연습"
+    ],
+    "oneLine": "정기 공연과 합주로 무대 경험을 쌓는 밴드 동아리",
+    "description": "샘플 데이터입니다. 실제 동아리 정보/포스터로 교체하세요.",
+    "activityTime": "주 2회",
+    "location": "교내",
+    "recruiting": true,
+    "recruitEnd": "2026-03-05",
+    "applyUrl": "https://example.com/apply2",
+    "contactUrl": "https://example.com/contact2",
+    "logo": "",
+    "images": [
+      "./assets/posters/dcu__band-crew.svg"
+    ]
+  },
+  {
+    "id": "dcu__volunteer",
+    "school": "대구가톨릭대학교",
+    "name": "따뜻한 발걸음",
+    "categories": [
+      "봉사"
+    ],
+    "tags": [
+      "지역사회",
+      "정기활동"
+    ],
+    "oneLine": "지역사회와 함께하는 정기 봉사 활동",
+    "description": "샘플 데이터입니다. 실제 동아리 정보/포스터로 교체하세요.",
+    "activityTime": "월 2회",
+    "location": "교외",
+    "recruiting": false,
+    "recruitEnd": "2025-12-31",
+    "applyUrl": "https://example.com/apply3",
+    "contactUrl": "https://example.com/contact3",
+    "logo": "",
+    "images": [
+      "./assets/posters/dcu__volunteer.svg"
+    ]
+  }
+]

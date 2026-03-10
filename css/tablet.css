@@ -1,0 +1,12 @@
+@import url("./tokens.css");
+
+/* Tablet layout: 2-column list + sticky detail, bigger touch targets */
+@media (min-width: 681px) and (max-width: 1024px){
+  .hero-grid{ grid-template-columns: 1fr; }
+  .content-grid{ grid-template-columns: 1fr 420px; }
+  .cards{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .detail{ top: 76px; }
+  .hero h1{ font-size: 30px; }
+  .btn{ padding: 12px 12px; }
+  .chip{ padding: 10px 12px; }
+}

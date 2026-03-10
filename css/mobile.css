@@ -1,0 +1,102 @@
+@import url("./tokens.css");
+
+/* Mobile-first improvements */
+@media (max-width: 980px){
+  .hero{ padding: 20px 0 14px; }
+  .hero h1{ font-size: 26px; line-height: 1.22; }
+  .hero p{ font-size: 14px; }
+
+  .panel-body{ padding: 14px; }
+
+  /* Make filters feel like a compact toolbar */
+  .row{ gap: 8px; }
+  .select{ max-width: none !important; width: 100%; }
+  #toggleRecruiting, #toggleClosed{ width: 100%; justify-content:center; }
+  #reset{ width: 100%; justify-content:center; }
+
+  .cards{ grid-template-columns: 1fr !important; }
+
+  /* Reduce visual density */
+  .card-body{ padding: 12px 12px 12px; }
+  .card-actions{ gap: 10px; }
+  .btn{ padding: 12px 12px; border-radius: 14px; }
+  .input{ padding: 14px 14px; font-size: 15px; }
+  .chip{ padding: 10px 12px; font-size: 13px; }
+
+  /* Hide desktop side panel; use bottom sheet */
+  .detail{ display:none !important; }
+}
+
+/* Bottom sheet detail (mobile) */
+.sheet{
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  max-height: 90vh;
+  background: var(--bg);
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
+  box-shadow: 0 -20px 60px rgba(0,0,0,.25);
+  transform: translateY(110%);
+  transition: transform .18s ease;
+  z-index: 9998;
+  display:flex;
+  flex-direction: column;
+  overflow:hidden;
+}
+.sheet[data-open="true"]{ transform: translateY(0); }
+
+.sheet-top{
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--line);
+  background: rgba(255,255,255,.92);
+  backdrop-filter: blur(10px);
+}
+.sheet-grab{
+  width: 44px;
+  height: 5px;
+  border-radius: 999px;
+  background: #D1D5DB;
+  margin: 0 auto;
+}
+.sheet-close{
+  min-width: 68px;
+}
+.sheet-body{
+  overflow:auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.sheet-backdrop{
+  position: fixed;
+  inset: 0;
+  background: rgba(17,24,39,.55);
+  opacity: 0;
+  pointer-events:none;
+  transition: opacity .18s ease;
+  z-index: 9997;
+}
+.sheet-backdrop[data-open="true"]{
+  opacity: 1;
+  pointer-events:auto;
+}
+
+/* Improve poster modal on small screens */
+@media (max-width: 560px){
+  .modal-card{ border-radius: 14px; }
+  .modal-top .title{ font-size: 14px; }
+  .modal-body{ padding: 0; }
+}
+
+/* hide large chip areas on mobile; use drawer instead */
+@media (max-width: 980px){
+  #categoryChips, #tagChips{ display:none; }
+  /* keep labels hidden too (they are inline styles; can't target easily) */
+}
+
+@media (max-width: 980px){
+  .deadline-list{ display:block; }
+  #cardsDeadline{ display:none; }
+}

@@ -1,0 +1,34 @@
+name: Auto close expired recruiting
+
+on:
+  schedule:
+    # 18:00 UTC = 03:00 KST (Asia/Seoul)
+    - cron: "0 18 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  autoclose:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Auto close
+        run: node tools/auto_close_recruiting.mjs
+      - name: Commit & push if changed
+        run: |
+          if git status --porcelain | grep -q "data/clubs.json"; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add data/clubs.json
+            git commit -m "chore: auto close expired recruiting"
+            git push
+          else
+            echo "No changes"
+          fi
